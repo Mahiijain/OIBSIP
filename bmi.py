@@ -15,7 +15,7 @@ def BMI():
     m = float(Height.get())
     kg = float(weight.get())
 
-    bmi = float(kg/m**2)
+    bmi = round(float(kg/m**2),3)
     #print("BMI value is:")
     #print(bmi)
     label1.config(text = bmi)
@@ -84,9 +84,9 @@ canvas1.create_window(450, 230, window=label21)
 
 Button(root,text = 'Result',width=15,height=3,font = 'arial 10 bold', bg ="lightblue",fg='white',command= BMI).place(x=230,y=300)
 label1=Label(root, font = "arial 50 bold", bg = 'teal',fg = 'white')
-label1.place(x=125,y=370)
+label1.place(x=225,y=370)
 label2=Label(root, font = "arial 20 bold", bg = 'teal',fg = 'white')
-label2.place(x=120,y=470)
+label2.place(x=130,y=470)
 
 
 root.mainloop()
