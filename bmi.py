@@ -42,9 +42,13 @@ def get_current_value():
 def slider_changed(event):
     Height.set(get_current_value())
 
+def update_slider1(*args):
+    value = float(Height.get())
+    current_value.set(value)
+
 style = ttk.Style()
 style.configure("TScale",bg = "teal")
-slider = ttk.Scale(root,from_=0,to=220,orient="horizontal",style="TScale",command=slider_changed,variable=current_value)
+slider = ttk.Scale(root,from_=0,to=4,orient="horizontal",style="TScale",command=slider_changed,variable=current_value)
 slider.place(x=80,y=180)
 
 
@@ -55,6 +59,11 @@ def get_current_value2():
 def slider_changed2(event):
     Weight.set(get_current_value2())
 
+def update_slider2(*args):
+    value = float(Weight.get())
+    current_value2.set(value)
+
+
 style2 = ttk.Style()
 style2.configure("TScale",bg="teal")
 slider2 = ttk.Scale(root,from_=0,to=220,orient="horizontal",style="TScale",command=slider_changed2,variable=current_value2)
@@ -64,6 +73,8 @@ slider2.place(x=400,y=180)
 
 Height = StringVar()
 Weight = StringVar()
+Height.trace("w",update_slider1)
+Weight.trace("w",update_slider2)
 
 height = Entry(root,textvariable = Height,width = 5, font = 'arial 50',bg= "#fff", fg = "#000",bd=0,justify=CENTER)
 height.place(x=35,y=100)
