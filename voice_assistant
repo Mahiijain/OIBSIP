@@ -45,7 +45,11 @@ def respond(query):
     else:
         speak("I am sorry, I cannot do that yet.")
 
-if __name__ == "__main__":
+
+
+RUN_AS_SCRIPT = True  
+
+def main():
     speak("Voice Assistant initialized. How can I help you?")
     while True:
         command = listen()
@@ -54,3 +58,6 @@ if __name__ == "__main__":
         if "exit" in command or "quit" in command:
             speak("Goodbye!")
             break
+
+if RUN_AS_SCRIPT:
+    main()
